@@ -195,3 +195,9 @@ task("isStoredPayload", "check if stored payload", require("./isStoredPayload"))
     .addParam("desAddress", "")
     .addOptionalParam("payload", "")
     .addOptionalParam("clear", "", false, types.boolean)
+
+task("sendNINKYtoMUMBAI", "send OFTV2 to mumbai", require('./sendNINKYtoMUMBAI'))
+    .addParam("targetNetwork", "the destination chain")
+
+task("sendNINKYtoBSCtestnet", "send OFTV2 to bsc-testnet", require('./sendNINKYtoBSCtestnet'))
+    .addParam("targetNetwork", "the destination chain")
