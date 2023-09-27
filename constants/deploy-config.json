@@ -1,0 +1,11 @@
+{
+    "ProxyOFTV2": {
+        "ninkyAddress": "0x782eC8Ce335e190bd98E7ca00534d0f6CDDf877F",
+        "sharedDecimal": 6
+    },
+    "OFTV2": {
+        "name": "NINKY test token",
+        "symbol": "NINKY",
+        "sharedDecimal": 6
+    }
+}

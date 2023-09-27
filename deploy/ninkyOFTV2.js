@@ -1,4 +1,5 @@
 const LZ_ENDPOINTS = require("../constants/layerzeroEndpoints.json")
+const DEPLOY_CONFIG = require("../constants/chainIds.json")
 
 module.exports = async function ({ deployments, getNamedAccounts }) {
     const { deploy } = deployments
@@ -8,14 +9,16 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     console.log(`[${hre.network.name}] Endpoint Address: ${lzEndpointAddress}`)
 
-    const NINKY_ADDR = "0x782eC8Ce335e190bd98E7ca00534d0f6CDDf877F"
+    const ninkyOFTName = DEPLOY_CONFIG["OFTV2"].name
+    const ninkyOFTSymbol = DEPLOY_CONFIG["OFTV2"].symbol
+    const sharedDecimal = DEPLOY_CONFIG["OFTV2"].sharedDecimal
 
-    await deploy("ProxyOFTV2", {
+    await deploy("OFTV2", {
         from: deployer,
-        args: [NINKY_ADDR, 6, lzEndpointAddress],
+        args: [ninkyOFTName, ninkyOFTSymbol, sharedDecimal, lzEndpointAddress],
         log: true,
         waitConfirmations: 1,
     })
 }
 
-module.exports.tags = ["ProxyOFTV2"]
+module.exports.tags = ["ninkyOFTV2"]
